@@ -8,8 +8,9 @@ public class TextManager : MonoBehaviour
     public string[] speech;
     public TextMeshProUGUI speechText;
     public float scrollSpeed;
+    public bool isValidSpot; 
 
-    private int index; 
+    public int index; 
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class TextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0) && isValidSpot)
         {
             if (speechText.text == speech[index])
             {
@@ -33,9 +34,14 @@ public class TextManager : MonoBehaviour
             }
 
         }
+
+        if(MouseController.Instance.interactable == null)
+        {
+            isValidSpot = true; 
+        }
     }
 
-    void startDialogue()
+    public void startDialogue()
     {
         index = 0;
         StartCoroutine(TypeLines());
