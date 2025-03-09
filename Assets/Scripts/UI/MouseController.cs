@@ -66,11 +66,13 @@ public class MouseController : MonoBehaviour
                     if(interactable.activated != true)
                     {
                         interactable.activated = true;
+                        interactable.gameObject.GetComponent<Collider2D>().enabled = false; 
                         
                     }
                     else
                     {
                         interactable.textManager.isValidSpot = false;
+                        interactable.gameObject.GetComponent<Collider2D>().enabled = true;
                     }
                     
                 }
