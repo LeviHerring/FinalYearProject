@@ -6,7 +6,9 @@ public class FarmingOstrichDialogue : MonoBehaviour
 {
     float timer;
     TextManager textManager;
-    DialogueEntry dialogue; 
+    DialogueEntry dialogue;
+    [SerializeField] public string[] speech;
+    public GameObject ostrich; 
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,8 @@ public class FarmingOstrichDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime; 
+        timer += Time.deltaTime;
+        Speaking(); 
     }
 
     void Speaking()
@@ -25,6 +28,22 @@ public class FarmingOstrichDialogue : MonoBehaviour
        if(timer >= 0 || timer < 15)
         {
 
+        }
+        if (timer >= 16 || timer < 30)
+        {
+            ostrich.transform.position = new Vector2(6.0f, 0f);  
+        }
+        if (timer >= 5 || timer < 45)
+        {
+            if(ostrich.transform.position.x >= 6.0f)
+            {
+                ostrich.transform.position = Vector2.Lerp(ostrich.transform.position, new Vector2(ostrich.transform.position.x + 10, 0.0f), 3.0f);
+            }
+          
+            if(ostrich.transform.position.x >= -16.0f)
+            {
+                ostrich.transform.position = Vector2.Lerp(ostrich.transform.position, new Vector2(ostrich.transform.position.x - 10, 0.0f), 3.0f);
+            }
         }
     }
 }
