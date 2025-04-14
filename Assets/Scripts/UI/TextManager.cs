@@ -33,7 +33,7 @@ public class TextManager : MonoBehaviour
             }
         }
 
-        if (MouseController.Instance.interactable == null)
+        if (MouseController.Instance.dialogueInteractable == null)
         {
             isValidSpot = true;
         }

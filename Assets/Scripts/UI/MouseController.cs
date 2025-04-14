@@ -8,7 +8,8 @@ public class MouseController : MonoBehaviour
     public static MouseController Instance;
     [SerializeField] private Camera mainCamera;
     [SerializeField] LayerMask layer;
-    public InteractableObject interactable;
+    public DialogueInteractables dialogueInteractable;
+    public CropScript crop;
 
     private void Awake()
     {
@@ -59,25 +60,57 @@ public class MouseController : MonoBehaviour
             if (hit.collider != null) // Check if something was hit
             {
                 Debug.Log("Hit: " + hit.collider.name);
-
-                interactable = hit.collider.GetComponent<InteractableObject>();
-                if (interactable != null)
+                if (dialogueInteractable = hit.collider.GetComponent<DialogueInteractables>())
                 {
-                    if(interactable.activated != true)
-                    {
-                        interactable.activated = true;
-                        interactable.gameObject.GetComponent<Collider2D>().enabled = false; 
-                        
-                    }
-                    else
-                    {
-                        interactable.textManager.isValidSpot = false;
-                        interactable.gameObject.GetComponent<Collider2D>().enabled = true;
-                    }
+                    dialogueInteractable = hit.collider.GetComponent<DialogueInteractables>();
+                }
+               
+                if (dialogueInteractable != null)
+                {
+                    DialogueClick(); 
                     
+                }
+
+                if(hit.collider.GetComponent<CropScript>())
+                {
+                    crop = hit.collider.GetComponent<CropScript>(); 
+                }
+                if(crop != null)
+                {
+                    CropsActivated(); 
                 }
             }
             
+        }
+    }
+
+    void DialogueClick()
+    {
+        if (dialogueInteractable.activated != true)
+        {
+            dialogueInteractable.activated = true;
+            dialogueInteractable.gameObject.GetComponent<Collider2D>().enabled = false;
+
+        }
+        else
+        {
+            dialogueInteractable.textManager.isValidSpot = false;
+            dialogueInteractable.gameObject.GetComponent<Collider2D>().enabled = true;
+        }
+    }
+
+    void CropsActivated()
+    {
+        if (crop.activated != true)
+        {
+            crop.activated = true;
+            crop.timer = 0; 
+            crop.gameObject.GetComponent<Collider2D>().enabled = false;
+
+        }
+        else
+        {
+            crop.gameObject.GetComponent<Collider2D>().enabled = true;
         }
     }
 }
