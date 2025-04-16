@@ -12,9 +12,11 @@ public class TextManager : MonoBehaviour
     public bool isValidSpot;
     public int index;
     private bool waitingForAnswer = false; // Prevents skipping questions
+    public bool isFinished; 
 
     void Start()
     {
+        isFinished = false; 
         gameObject.SetActive(false); // Ensures the dialogue UI is hidden until needed
     }
 
@@ -110,6 +112,7 @@ public class TextManager : MonoBehaviour
 
     void EndDialogue()
     {
+        isFinished = true; 
         gameObject.SetActive(false);
     }
 }
