@@ -49,40 +49,38 @@ public class MouseController : MonoBehaviour
 
     void MouseInput()
     {
-        if (Input.GetMouseButtonDown(0)) // Left mouse button
+        if (Input.GetMouseButtonDown(0))
         {
-            // Get mouse position in world coordinates (2D)
-            Vector2 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            // If dialogue is happening, don’t allow interaction
+            if (MouseController.Instance.dialogueInteractable != null &&
+                MouseController.Instance.dialogueInteractable.textManager.dialogueInProgress)
+            {
+                return;
+            }
 
-            // Perform a 2D raycast at the mouse position
+            Vector2 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mouseWorldPosition, Vector2.zero, Mathf.Infinity, layer);
 
-            if (hit.collider != null) // Check if something was hit
+            if (hit.collider != null)
             {
-                Debug.Log("Hit: " + hit.collider.name);
-                if (dialogueInteractable = hit.collider.GetComponent<DialogueInteractables>())
+                DialogueInteractables clickedDialogue = hit.collider.GetComponent<DialogueInteractables>();
+
+                if (clickedDialogue != null)
                 {
-                    dialogueInteractable = hit.collider.GetComponent<DialogueInteractables>();
-                }
-               
-                if (dialogueInteractable != null)
-                {
-                    DialogueClick(); 
-                    
+                    dialogueInteractable = clickedDialogue;
+                    DialogueClick();
+                    return;
                 }
 
-                if(hit.collider.GetComponent<CropScript>())
+                if (hit.collider.GetComponent<CropScript>())
                 {
-                    crop = hit.collider.GetComponent<CropScript>(); 
-                }
-                if(crop != null)
-                {
-                    CropsActivated(); 
+                    crop = hit.collider.GetComponent<CropScript>();
+                    CropsActivated();
                 }
             }
-            
         }
     }
+
 
     void DialogueClick()
     {
@@ -94,7 +92,7 @@ public class MouseController : MonoBehaviour
         }
         else
         {
-            dialogueInteractable.textManager.isValidSpot = false;
+            //dialogueInteractable.textManager.isValidSpot = false;
             dialogueInteractable.gameObject.GetComponent<Collider2D>().enabled = true;
         }
     }

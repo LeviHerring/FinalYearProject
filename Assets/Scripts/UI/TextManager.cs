@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,58 +7,67 @@ public class TextManager : MonoBehaviour
 {
     public DialogueEntry dialogueEntry;
     public TextMeshProUGUI speechText;
-    public float scrollSpeed;
-    public bool isValidSpot;
+    public float scrollSpeed = 0.02f;
+    public bool isFinished;
+    public bool dialogueInProgress;
+
     public int index;
-    private bool waitingForAnswer = false; // Prevents skipping questions
-    public bool isFinished; 
+    private bool typing;
+    private bool waitingForAnswer;
 
     void Start()
     {
-        isFinished = false; 
-        gameObject.SetActive(false); // Ensures the dialogue UI is hidden until needed
+        isFinished = false;
+        gameObject.SetActive(false);
+        dialogueInProgress = false;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isValidSpot && !waitingForAnswer) //  Prevent skipping when waiting for an answer
+        if (!dialogueInProgress) return;
+
+        // Click to skip typing
+        if (Input.GetMouseButtonDown(0))
         {
-            if (speechText.text == dialogueEntry.lines[index])
-            {
-                NextLine();
-            }
-            else
+            if (typing)
             {
                 StopAllCoroutines();
                 speechText.text = dialogueEntry.lines[index];
+                typing = false;
             }
-        }
-
-        if (MouseController.Instance.dialogueInteractable == null)
-        {
-            isValidSpot = true;
+            else if (!waitingForAnswer)
+            {
+                NextLine();
+            }
         }
     }
 
-    public void StartDialogue(DialogueEntry entry) // Takes a DialogueEntry as input
+    public void StartDialogue(DialogueEntry entry)
     {
         dialogueEntry = entry;
         index = 0;
+        gameObject.SetActive(true);
+        isFinished = false;
+        dialogueInProgress = true;
         waitingForAnswer = false;
-        gameObject.SetActive(true); // Show the dialogue UI
+
         StartCoroutine(TypeLines());
     }
 
     IEnumerator TypeLines()
     {
-        speechText.text = ""; // Reset text before typing
-        foreach (char c in dialogueEntry.lines[index].ToCharArray())
+        typing = true;
+        speechText.text = "";
+
+        foreach (char c in dialogueEntry.lines[index])
         {
             speechText.text += c;
             yield return new WaitForSeconds(scrollSpeed);
         }
 
-        if (dialogueEntry.isQuestion) // If it's a question, enable buttons and wait
+        typing = false;
+
+        if (dialogueEntry.isQuestion && index == dialogueEntry.lines.Length - 1)
         {
             waitingForAnswer = true;
             EnableAnswerButtons(true);
@@ -71,8 +79,6 @@ public class TextManager : MonoBehaviour
         if (index < dialogueEntry.lines.Length - 1)
         {
             index++;
-            speechText.text = string.Empty;
-            waitingForAnswer = false;
             StartCoroutine(TypeLines());
         }
         else
@@ -81,9 +87,9 @@ public class TextManager : MonoBehaviour
         }
     }
 
-    public void AnswerSelected(Button selectedButton) // Called when a player selects an answer
+    public void AnswerSelected(Button selectedButton)
     {
-        if (selectedButton == dialogueEntry.correctAnswer) // Check correct answer
+        if (selectedButton == dialogueEntry.correctAnswer)
         {
             Debug.Log("Correct Answer!");
         }
@@ -92,27 +98,30 @@ public class TextManager : MonoBehaviour
             Debug.Log("Wrong Answer!");
         }
 
-        EnableAnswerButtons(false); // Disable answer buttons after selecting
+        EnableAnswerButtons(false);
         waitingForAnswer = false;
-        NextLine(); // Move to the next dialogue after selecting
+        NextLine();
     }
 
-    void EnableAnswerButtons(bool state) //Show/hide answer buttons
+    void EnableAnswerButtons(bool state)
     {
         foreach (Button button in dialogueEntry.answers)
         {
             button.gameObject.SetActive(state);
-            button.onClick.RemoveAllListeners(); // Remove old listeners
+            button.onClick.RemoveAllListeners();
             if (state)
             {
-                button.onClick.AddListener(() => AnswerSelected(button)); // Add listener to check answer
+                button.onClick.AddListener(() => AnswerSelected(button));
             }
         }
     }
 
     void EndDialogue()
     {
-        isFinished = true; 
+        isFinished = true;
+        dialogueInProgress = false;
+        speechText.text = "";
         gameObject.SetActive(false);
+        MouseController.Instance.dialogueInteractable = null; // free up for next NPC
     }
 }

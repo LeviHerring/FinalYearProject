@@ -1,30 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueInteractables : InteractableObject
 {
     public TextManager textManager;
     public DialogueEntry dialogueEntry;
-    private bool dialogueStarted = false; //  Prevents re-triggering dialogue every frame
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool dialogueStarted = false;
 
-    // Update is called once per frame
     void Update()
     {
-        if (activated && !dialogueStarted) //  Only start dialogue once per activation
+        if (!dialogueStarted && textManager != null && MouseController.Instance.dialogueInteractable == this)
         {
             dialogueStarted = true;
-            textManager.StartDialogue(dialogueEntry); //  Pass the DialogueEntry to TextManager
+            textManager.StartDialogue(dialogueEntry);
         }
 
-        if (activated && Input.GetMouseButtonDown(0) && !textManager.gameObject.activeSelf) // Close after last line
+        if (dialogueStarted && !textManager.dialogueInProgress)
         {
-            activated = false;
             dialogueStarted = false;
         }
     }
