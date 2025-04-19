@@ -5,9 +5,11 @@ using UnityEngine;
 public class EmuSpawner : MonoBehaviour
 {
     public GameObject RunningEmuPrefab;
+    public GameObject EmuLeaderPrefab;
     public float spawnInterval = 5f;
     public Vector2 minSpawnBounds = new Vector2(-8f, -8f);
     public Vector2 maxSpawnBounds = new Vector2(8f, 8f);
+    public Vector2 leaderSpawnPosition = Vector2.zero; // Always spawn leader here
 
     private float timer;
 
@@ -22,11 +24,16 @@ public class EmuSpawner : MonoBehaviour
 
         if (timer <= 0f)
         {
-            for(int i = 0; i < 5; i++)
+            // Spawn 5 regular emus at random positions
+            for (int i = 0; i < 5; i++)
             {
                 SpawnEmu();
             }
-          timer = spawnInterval;
+
+            // Spawn 1 emu leader in the center (or defined point)
+            SpawnLeader();
+
+            timer = spawnInterval;
         }
     }
 
@@ -38,5 +45,10 @@ public class EmuSpawner : MonoBehaviour
         );
 
         Instantiate(RunningEmuPrefab, randomPosition, Quaternion.identity);
+    }
+
+    void SpawnLeader()
+    {
+        Instantiate(EmuLeaderPrefab, leaderSpawnPosition, Quaternion.identity);
     }
 }

@@ -8,7 +8,8 @@ public class EmuRunning : MonoBehaviour
     ShootingMouse shootingMouse;
     public float speed = 3f;
     public float randomDirectionChangeInterval = 2f;
-    public EmusKilledText emusKilledText; 
+    public EmusKilledText emusKilledText;
+    Animator animator; 
 
     // public Vector2 minBounds = new Vector2(-8.88f, -4.88f);  // Bottom-left of the square
     // public Vector2 maxBounds = new Vector2(8.63f, 4.77f);    // Top-right of the square
@@ -20,6 +21,8 @@ public class EmuRunning : MonoBehaviour
     {
         shootingMouse = FindObjectOfType<ShootingMouse>();
         emusKilledText = FindObjectOfType<EmusKilledText>();
+        animator = GetComponent<Animator>();
+        animator.SetTrigger("Run"); 
         timer = randomDirectionChangeInterval;
         ChooseRandomDirection();
         shootingMouse.isHit = false;

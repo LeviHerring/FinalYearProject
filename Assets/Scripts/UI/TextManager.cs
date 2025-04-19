@@ -1,32 +1,24 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UI;
 
 public class TextManager : MonoBehaviour
 {
     public DialogueEntry dialogueEntry;
     public TextMeshProUGUI speechText;
-    public float scrollSpeed = 0.02f;
-    public bool isFinished;
-    public bool dialogueInProgress;
+    public float scrollSpeed = 0.03f;
+    public bool isFinished { get; private set; }
+    public bool dialogueInProgress { get; private set; }
 
-    public int index;
-    private bool typing;
-    private bool waitingForAnswer;
-
-    void Start()
-    {
-        isFinished = false;
-        gameObject.SetActive(false);
-        dialogueInProgress = false;
-    }
+    private int index = 0;
+    private bool typing = false;
+    private bool waitingForAnswer = false;
 
     void Update()
     {
         if (!dialogueInProgress) return;
 
-        // Click to skip typing
         if (Input.GetMouseButtonDown(0))
         {
             if (typing)
@@ -46,15 +38,15 @@ public class TextManager : MonoBehaviour
     {
         dialogueEntry = entry;
         index = 0;
-        gameObject.SetActive(true);
         isFinished = false;
         dialogueInProgress = true;
         waitingForAnswer = false;
 
-        StartCoroutine(TypeLines());
+        gameObject.SetActive(true);
+        StartCoroutine(TypeLine());
     }
 
-    IEnumerator TypeLines()
+    IEnumerator TypeLine()
     {
         typing = true;
         speechText.text = "";
@@ -67,6 +59,7 @@ public class TextManager : MonoBehaviour
 
         typing = false;
 
+        // Check for question
         if (dialogueEntry.isQuestion && index == dialogueEntry.lines.Length - 1)
         {
             waitingForAnswer = true;
@@ -79,7 +72,7 @@ public class TextManager : MonoBehaviour
         if (index < dialogueEntry.lines.Length - 1)
         {
             index++;
-            StartCoroutine(TypeLines());
+            StartCoroutine(TypeLine());
         }
         else
         {
@@ -91,11 +84,11 @@ public class TextManager : MonoBehaviour
     {
         if (selectedButton == dialogueEntry.correctAnswer)
         {
-            Debug.Log("Correct Answer!");
+            Debug.Log("Correct answer.");
         }
         else
         {
-            Debug.Log("Wrong Answer!");
+            Debug.Log("Wrong answer.");
         }
 
         EnableAnswerButtons(false);
@@ -103,25 +96,26 @@ public class TextManager : MonoBehaviour
         NextLine();
     }
 
-    void EnableAnswerButtons(bool state)
+    void EnableAnswerButtons(bool active)
     {
-        foreach (Button button in dialogueEntry.answers)
+        foreach (Button b in dialogueEntry.answers)
         {
-            button.gameObject.SetActive(state);
-            button.onClick.RemoveAllListeners();
-            if (state)
-            {
-                button.onClick.AddListener(() => AnswerSelected(button));
-            }
+            b.gameObject.SetActive(active);
+            b.onClick.RemoveAllListeners();
+
+            if (active)
+                b.onClick.AddListener(() => AnswerSelected(b));
         }
     }
 
     void EndDialogue()
     {
-        isFinished = true;
         dialogueInProgress = false;
+        isFinished = true;
         speechText.text = "";
         gameObject.SetActive(false);
-        MouseController.Instance.dialogueInteractable = null; // free up for next NPC
+
+        if (MouseController.Instance)
+            MouseController.Instance.dialogueInteractable = null;
     }
 }
