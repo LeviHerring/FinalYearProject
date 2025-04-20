@@ -25,7 +25,11 @@ public class FinalCutsceneManager : MonoBehaviour
     void Start()
     {
         shootText.gameObject.SetActive(false);
-        statsGroup.alpha = 0;
+
+        statsGroup.alpha = 1; // Make stats visible at start
+        titleText.gameObject.SetActive(true);
+        titleText.text = "LAST STAND";
+
         fadeAnimator.SetTrigger("Idle");
 
         StartCoroutine(CutsceneSequence());
@@ -44,11 +48,12 @@ public class FinalCutsceneManager : MonoBehaviour
 
     IEnumerator CutsceneSequence()
     {
-        // Show "LAST STAND"
-        titleText.text = "LAST STAND";
-        titleText.gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
-        titleText.gameObject.SetActive(false);
+
+        // Fade out statsGroup (if it was showing something like "LAST STAND")
+        StartCoroutine(FadeCanvasGroup(statsGroup, 1.5f));
+
+        yield return new WaitForSeconds(1f); // Wait for fade
 
         // Show emus and soldiers
         foreach (var soldier in soldiers)
@@ -70,19 +75,13 @@ public class FinalCutsceneManager : MonoBehaviour
 
     IEnumerator ShootBullet()
     {
-        // Fire weak bullet
         GameObject b = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
+        b.tag = "Bullet"; // Ensure it has the correct tag for EmuDodge to find it
+
         Rigidbody2D rb = b.GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(3f, 0.5f); // Weak, slow bullet
+        rb.velocity = new Vector2(3f, 0.5f);
 
-        // EmuDodge will take over from here (dodge + restore + call OnEmusChargeFinished)
         yield return null;
-    }
-
-    // Called by EmuDodge AFTER all emus have charged and returned
-    public void OnEmusChargeFinished()
-    {
-        StartCoroutine(RunawaySequence());
     }
 
     public void TriggerEmuRush()
@@ -93,27 +92,36 @@ public class FinalCutsceneManager : MonoBehaviour
         {
             EmuCharger charger = emu.GetComponent<EmuCharger>();
             if (charger != null)
-                charger.StartCharge(); // Add animation/audio/etc in EmuCharger
+                charger.StartCharge();
         }
+    }
+
+    public void OnEmusChargeFinished()
+    {
+        StartCoroutine(RunawaySequence());
     }
 
     IEnumerator RunawaySequence()
     {
-        // Soldiers flee
+        yield return new WaitForSeconds(1f); // Quick delay before soldiers react
+
         foreach (GameObject soldier in soldiers)
         {
+            Runaway run = soldier.GetComponent<Runaway>();
             Animator anim = soldier.GetComponent<Animator>();
-            if (anim != null)
-                anim.SetTrigger("Runaway");
+
+            if (run != null) run.StartRunaway();
+            if (anim != null) anim.SetTrigger("Runaway");
         }
 
         yield return new WaitForSeconds(2f);
 
         fadeAnimator.SetTrigger("FadeOut");
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        fadeAnimator.SetTrigger("Black");
 
-        // Show stats
+        // Show stats panel
         statsGroup.alpha = 1;
         titleText.text = "The Army Retreats";
         subtitleText.text = "Emus killed: 986 / Estimated emus: 20,000+\nSoldiers injured: 0\nMorale: -1000";
@@ -122,11 +130,23 @@ public class FinalCutsceneManager : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
 
-        // Final subtitle
         titleText.text = "";
         subtitleText.text = "With no choice, the government turns to... bounty hunters.";
         yield return new WaitForSeconds(4f);
 
-        SceneManager.LoadScene("BountyScene"); // Replace with actual next scene name
+        SceneManager.LoadScene("BountyScene");
+    }
+
+    IEnumerator FadeCanvasGroup(CanvasGroup cg, float duration)
+    {
+        float startAlpha = cg.alpha;
+        float time = 0f;
+        while (time < duration)
+        {
+            cg.alpha = Mathf.Lerp(startAlpha, 0, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        cg.alpha = 0;
     }
 }

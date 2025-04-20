@@ -7,6 +7,7 @@ TagManager:
   - Emu
   - PickUp
   - Evidence
+  - Bullet
   layers:
   - Default
   - TransparentFX

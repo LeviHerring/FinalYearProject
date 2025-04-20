@@ -158,6 +158,7 @@ MonoBehaviour:
   activated: 0
   textManager: {fileID: 915860319}
   dialogueEntry: {fileID: 56145570}
+  nextSceneIndex: -1
 --- !u!114 &56145570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +224,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.48, y: 0.78}
   m_EdgeRadius: 0
 --- !u!212 &56145572
 SpriteRenderer:
@@ -286,8 +287,8 @@ Transform:
   m_GameObject: {fileID: 56145568}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.17, y: 2.33, z: -0.96}
-  m_LocalScale: {x: 3.2624345, y: 3.4059815, z: 3.2624345}
+  m_LocalPosition: {x: -2.18, y: 2.33, z: -0.96}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -405,8 +406,8 @@ Transform:
   m_GameObject: {fileID: 85429096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.86, y: 2.25, z: -0.96}
-  m_LocalScale: {x: 5.6697264, y: 5.6697264, z: 5.6697264}
+  m_LocalPosition: {x: 6.84, y: 1.97, z: -0.96}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -454,7 +455,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.31, y: 0.54}
   m_EdgeRadius: 0
 --- !u!114 &85429101
 MonoBehaviour:
@@ -469,14 +470,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - ' Why was mounting the gun on a truck a failure?'
+  - What solution did the farmers use after the military withdrew?
   isQuestion: 1
   answers:
   - {fileID: 75974771}
   - {fileID: 224987586}
   - {fileID: 1357857981}
   - {fileID: 1594876852}
-  correctAnswer: {fileID: 75974771}
+  correctAnswer: {fileID: 224987586}
 --- !u!114 &85429102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +493,7 @@ MonoBehaviour:
   activated: 0
   textManager: {fileID: 915860319}
   dialogueEntry: {fileID: 85429101}
+  nextSceneIndex: 17
 --- !u!1 &134106755
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +589,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &356911611
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 191648952718839197, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
+      propertyPath: m_Name
+      value: QuestionMark
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,6 +774,7 @@ MonoBehaviour:
   activated: 0
   textManager: {fileID: 915860319}
   dialogueEntry: {fileID: 676007608}
+  nextSceneIndex: -1
 --- !u!114 &676007608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,8 +788,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - "You brought all this firepower and still can\u2019t hit a single bird? I\u2019ve
-    seen toddlers with better aim!"
+  - I heard that there's a bounty reward for killing the emus now! That's why I'm
+    here hehehe
   isQuestion: 0
   answers:
   - {fileID: 75974771}
@@ -773,14 +833,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.36, y: 0.54}
+    oldSize: {x: 0.44, y: 0.99}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.44, y: 0.99}
   m_EdgeRadius: 0
 --- !u!212 &676007610
 SpriteRenderer:
@@ -823,7 +883,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1091662398, guid: 939db327a45fa554390d1d8e0e609ee3, type: 3}
+  m_Sprite: {fileID: -1853827968, guid: 8e2693a64f7823440aee5795708b542f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -843,8 +903,8 @@ Transform:
   m_GameObject: {fileID: 676007606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.57, y: -1.38, z: -0.96}
-  m_LocalScale: {x: 5.666507, y: 5.915833, z: 5.666507}
+  m_LocalPosition: {x: -6.6, y: -2.68, z: -0.96}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -859,7 +919,7 @@ Animator:
   m_GameObject: {fileID: 676007606}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a438f164ab51230469349724385f4439, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1d16d84bba4ea1a41b492c10f36a61e8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -883,6 +943,7 @@ GameObject:
   - component: {fileID: 863017148}
   - component: {fileID: 863017147}
   - component: {fileID: 863017146}
+  - component: {fileID: 863017151}
   m_Layer: 6
   m_Name: Farmer (1)
   m_TagString: Untagged
@@ -905,6 +966,7 @@ MonoBehaviour:
   activated: 0
   textManager: {fileID: 915860319}
   dialogueEntry: {fileID: 863017147}
+  nextSceneIndex: -1
 --- !u!114 &863017147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,8 +980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - You lot are supposed to be the army! And you got outsmarted by a bunch of birds
-    with noodles for brains!
+  - Well that was a joke.
   isQuestion: 0
   answers:
   - {fileID: 75974771}
@@ -970,7 +1031,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.34, y: 0.56}
   m_EdgeRadius: 0
 --- !u!212 &863017149
 SpriteRenderer:
@@ -1033,12 +1094,33 @@ Transform:
   m_GameObject: {fileID: 863017145}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.77331, y: -1.38, z: -0.96}
-  m_LocalScale: {x: 5.666507, y: 5.915833, z: 5.666507}
+  m_LocalPosition: {x: 0.1, y: -2.38, z: -0.96}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &863017151
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863017145}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a438f164ab51230469349724385f4439, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &915860319 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5033097002241178185, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
@@ -1165,6 +1247,7 @@ MonoBehaviour:
   activated: 0
   textManager: {fileID: 915860319}
   dialogueEntry: {fileID: 1513622148}
+  nextSceneIndex: -1
 --- !u!114 &1513622148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1230,7 +1313,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.77}
   m_EdgeRadius: 0
 --- !u!212 &1513622150
 SpriteRenderer:
@@ -1293,8 +1376,8 @@ Transform:
   m_GameObject: {fileID: 1513622146}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.95, y: 2.16, z: -0.96}
-  m_LocalScale: {x: 3.2624345, y: 3.4059815, z: 3.2624345}
+  m_LocalPosition: {x: -7.95, y: 2.33, z: -0.96}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1333,6 +1416,7 @@ GameObject:
   - component: {fileID: 1576276765}
   - component: {fileID: 1576276764}
   - component: {fileID: 1576276763}
+  - component: {fileID: 1576276768}
   m_Layer: 6
   m_Name: Farmer (2)
   m_TagString: Untagged
@@ -1355,6 +1439,7 @@ MonoBehaviour:
   activated: 0
   textManager: {fileID: 915860319}
   dialogueEntry: {fileID: 1576276764}
+  nextSceneIndex: -1
 --- !u!114 &1576276764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1368,7 +1453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - We needed protection, not a circus act! That truck made more noise than damage.
+  - What now? Wait for them to fly away? They don't even fly!
   isQuestion: 0
   answers:
   - {fileID: 75974771}
@@ -1419,7 +1504,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.34, y: 0.56}
   m_EdgeRadius: 0
 --- !u!212 &1576276766
 SpriteRenderer:
@@ -1482,12 +1567,33 @@ Transform:
   m_GameObject: {fileID: 1576276762}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.18, y: -1.38, z: -0.96}
-  m_LocalScale: {x: 5.666507, y: 5.915833, z: 5.666507}
+  m_LocalPosition: {x: 5.85, y: -2.38, z: -0.96}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1576276768
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576276762}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a438f164ab51230469349724385f4439, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1594876852 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6322285471960481850, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
@@ -1633,6 +1739,7 @@ MonoBehaviour:
   activated: 0
   textManager: {fileID: 915860319}
   dialogueEntry: {fileID: 2133925322}
+  nextSceneIndex: -1
 --- !u!114 &2133925322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1646,7 +1753,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - 'Meredith: I thought the idea was Genius! How did the car not work?'
+  - 'Meredith, McMurray, O''Halloran: We apologise for the failure. We didn''t think
+    this would happen'
   isQuestion: 0
   answers:
   - {fileID: 75974771}
@@ -1697,7 +1805,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.48, y: 0.83}
   m_EdgeRadius: 0
 --- !u!212 &2133925324
 SpriteRenderer:
@@ -1760,8 +1868,8 @@ Transform:
   m_GameObject: {fileID: 2133925320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.46, y: 2.33, z: -0.96}
-  m_LocalScale: {x: 3.8634243, y: 4.033415, z: 3.8634243}
+  m_LocalPosition: {x: -5.1, y: 2.36, z: -0.96}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1878,7 +1986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 926446276479313514, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_Name
-      value: The emus destroyed the truck.
+      value: They built underground wheat farms.
       objectReference: {fileID: 0}
     - target: {fileID: 926446276479313514, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_IsActive
@@ -1978,7 +2086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2547464852770668852, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_text
-      value: The terrain was too rough, making it hard to aim.
+      value: They trained attack dogs.
       objectReference: {fileID: 0}
     - target: {fileID: 2547464852770668852, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_fontSize
@@ -2028,9 +2136,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 358
       objectReference: {fileID: 0}
+    - target: {fileID: 5033097002241178185, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: correctAnswerFeedback
+      value: Test 123
+      objectReference: {fileID: 0}
     - target: {fileID: 5082577950128990797, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_text
-      value: The emus shot back.
+      value: They used bounty hunters.
       objectReference: {fileID: 0}
     - target: {fileID: 5082577950128990797, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_fontSize
@@ -2042,7 +2154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5269927077739559670, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_Name
-      value: The truck broke down before they could fire.
+      value: They called in the Navy.
       objectReference: {fileID: 0}
     - target: {fileID: 5269927077739559670, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_IsActive
@@ -2050,7 +2162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5730141215084155035, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_Name
-      value: The emus shot back.
+      value: They used bounty hunters.
       objectReference: {fileID: 0}
     - target: {fileID: 5730141215084155035, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_IsActive
@@ -2094,7 +2206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8023495102580397871, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_text
-      value: The emus destroyed the truck.
+      value: They built underground wheat farms.
       objectReference: {fileID: 0}
     - target: {fileID: 8023495102580397871, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_fontSize
@@ -2106,7 +2218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8048033690325322225, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_text
-      value: The truck broke down before they could fire.
+      value: They called in the Navy.
       objectReference: {fileID: 0}
     - target: {fileID: 8048033690325322225, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_fontSize
@@ -2118,7 +2230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8322071196559923271, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_Name
-      value: The terrain was too rough, making it hard to aim.
+      value: They trained attack dogs.
       objectReference: {fileID: 0}
     - target: {fileID: 8322071196559923271, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_IsActive
@@ -2146,3 +2258,4 @@ SceneRoots:
   - {fileID: 56145573}
   - {fileID: 1513622151}
   - {fileID: 1651776182}
+  - {fileID: 356911611}

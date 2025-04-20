@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OstrichAmbush : MonoBehaviour
 {
+    Animator anim;
     private bool isPanicking = false;
 
     public float slowSpeed = 1f;
@@ -11,11 +12,15 @@ public class OstrichAmbush : MonoBehaviour
     public float fastSpeed = 4f;
     public float panicSpeed = 7f;
 
+    public float escapeX = -12f;  // Position too far left
+
     int randomSneak;
     float currentSpeed;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
+        anim.SetTrigger("Run");
         randomSneak = Random.Range(0, 3);
 
         switch (randomSneak)
@@ -41,6 +46,12 @@ public class OstrichAmbush : MonoBehaviour
         else
         {
             MoveLeft(currentSpeed);
+        }
+
+        if (transform.position.x <= escapeX)
+        {
+            AmbushGun.Instance?.EmuEscaped();  // Tell gun that one escaped
+            Destroy(gameObject);               // Remove the emu
         }
     }
 

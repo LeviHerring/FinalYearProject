@@ -28,7 +28,7 @@ public class FarmingSceneTwo : MonoBehaviour
 
         if (textManager.isFinished == true)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(6);
         }
     }
 

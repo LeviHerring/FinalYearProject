@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AmbushGun : MonoBehaviour
 {
+    public static AmbushGun Instance;
+
     public float shootRange = 5f;
     public LayerMask emuLayer;
     public Transform gunTip;
@@ -11,6 +13,11 @@ public class AmbushGun : MonoBehaviour
     public int kills = 0;
     private int maxKills = 12;
     private bool isJammed = false;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Update()
     {
@@ -50,6 +57,21 @@ public class AmbushGun : MonoBehaviour
         if (kills >= maxKills)
         {
             isJammed = true;
+        }
+    }
+
+    public void EmuEscaped()
+    {
+        if (!isJammed)
+        {
+            kills++;
+            Debug.Log("An emu escaped! Kill count increased to: " + kills + " (from escape)");
+
+            if (kills >= maxKills)
+            {
+                isJammed = true;
+                Debug.Log("Gun jammed after too many missed emus!");
+            }
         }
     }
 

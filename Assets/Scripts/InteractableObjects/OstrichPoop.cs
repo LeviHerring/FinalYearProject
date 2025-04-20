@@ -3,17 +3,25 @@ using UnityEngine;
 
 public class OstrichPoop : MonoBehaviour
 {
-    public GameObject poopPrefab;           // Assign a poop prefab in inspector
+    public GameObject poopPrefab;
     public float moveSpeed = 2f;
     public float walkDuration = 2f;
     public float poopInterval = 5f;
-    public Vector2 areaMin = new Vector2(-10, -10);  // Square area bounds
-    public Vector2 areaMax = new Vector2(10, 10);
+    public Vector2 areaMin = new Vector2(-9f, 0f);
+    public Vector2 areaMax = new Vector2(4.5f, 7f);
 
-    private Vector2 moveDirection;
+    private Vector3 moveDirection;
+    private Animator anim;
+    private const float fixedZ = 20f;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
+        // Set Z on start
+        Vector3 pos = transform.position;
+        pos.z = fixedZ;
+        transform.position = pos;
+
         StartCoroutine(WalkAndPoopLoop());
     }
 
@@ -21,37 +29,43 @@ public class OstrichPoop : MonoBehaviour
     {
         while (true)
         {
-            // Pick a random direction (up/down/left/right)
-            int dir = Random.Range(0, 4);
-            switch (dir)
-            {
-                case 0: moveDirection = Vector2.up; break;
-                case 1: moveDirection = Vector2.down; break;
-                case 2: moveDirection = Vector2.left; break;
-                case 3: moveDirection = Vector2.right; break;
-            }
+            anim.SetTrigger("Run");
+
+            moveDirection = GetRandomDirection();
 
             float elapsed = 0f;
 
             while (elapsed < walkDuration)
             {
-                Vector2 nextPos = (Vector2)transform.position + moveDirection * moveSpeed * Time.deltaTime;
+                Vector3 nextPos = transform.position + moveDirection * moveSpeed * Time.deltaTime;
 
-                // Keep within bounds
-                if (nextPos.x >= areaMin.x && nextPos.x <= areaMax.x &&
-                    nextPos.y >= areaMin.y && nextPos.y <= areaMax.y)
-                {
-                    transform.position = nextPos;
-                }
+                // Clamp to area
+                nextPos.x = Mathf.Clamp(nextPos.x, areaMin.x, areaMax.x);
+                nextPos.y = Mathf.Clamp(nextPos.y, areaMin.y, areaMax.y);
+                nextPos.z = fixedZ;
+
+                transform.position = nextPos;
 
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
-            // Poop time!
+            anim.SetTrigger("Idle");
             Poop();
 
             yield return new WaitForSeconds(poopInterval);
+        }
+    }
+
+    Vector3 GetRandomDirection()
+    {
+        switch (Random.Range(0, 4))
+        {
+            case 0: return Vector3.up;
+            case 1: return Vector3.down;
+            case 2: return Vector3.left;
+            case 3: return Vector3.right;
+            default: return Vector3.zero;
         }
     }
 
@@ -59,7 +73,20 @@ public class OstrichPoop : MonoBehaviour
     {
         if (poopPrefab != null)
         {
-            Instantiate(poopPrefab, transform.position, Quaternion.identity);
+            Vector3 poopPos = transform.position;
+            poopPos.z = fixedZ;
+            Instantiate(poopPrefab, poopPos, Quaternion.identity);
+        }
+    }
+
+    void LateUpdate()
+    {
+        // Final z-enforcer just in case
+        if (Mathf.Abs(transform.position.z - fixedZ) > 0.001f)
+        {
+            Vector3 correctedPos = transform.position;
+            correctedPos.z = fixedZ;
+            transform.position = correctedPos;
         }
     }
 }

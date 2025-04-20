@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FarmingOstrichDialogue : MonoBehaviour
 {
@@ -17,6 +17,7 @@ public class FarmingOstrichDialogue : MonoBehaviour
     private bool introStarted = false;
     private bool ostrichDialogueStarted = false;
     private bool notLeavingDialogueStarted = false;
+    private bool isSceneTransitioning = false;  // Flag to ensure scene transition only happens once
 
     void Start()
     {
@@ -35,7 +36,7 @@ public class FarmingOstrichDialogue : MonoBehaviour
         // INTRO: 0–15 seconds
         if (timer >= 0 && timer < 15 && !introStarted)
         {
-            textManager.gameObject.SetActive(true); 
+            textManager.gameObject.SetActive(true);
             dialogue.lines = speechIntro;
             textManager.StartDialogue(dialogue);
             introStarted = true;
@@ -47,6 +48,7 @@ public class FarmingOstrichDialogue : MonoBehaviour
             if (ostrich != null)
             {
                 ostrich.SetActive(true);
+                ostrich.GetComponent<Ostrich>().anim.SetTrigger("Run");
                 ostrich.transform.position = new Vector3(6f, 0f, -5f);
             }
 
@@ -71,6 +73,13 @@ public class FarmingOstrichDialogue : MonoBehaviour
             textManager.StartDialogue(dialogue);
             notLeavingDialogueStarted = true;
         }
+
+        // After the 'notLeaving' dialogue finishes, wait for 2 seconds and go to next scene
+        if (notLeavingDialogueStarted && textManager.isFinished && !isSceneTransitioning)
+        {
+            StartCoroutine(WaitAndGoToNextScene(2f));
+            isSceneTransitioning = true;  // Make sure this only happens once
+        }
     }
 
     void OnMouseDown()
@@ -81,5 +90,11 @@ public class FarmingOstrichDialogue : MonoBehaviour
     public void OstrichClicked()
     {
         ostrichClicked = true;
+    }
+
+    IEnumerator WaitAndGoToNextScene(float delay)
+    {
+        yield return new WaitForSeconds(delay);  // Wait for 2 seconds
+        SceneManager.LoadScene(4);  // Replace with your desired scene name
     }
 }

@@ -10,7 +10,8 @@ public class Car : MonoBehaviour
     Rigidbody2D rb;
     float timer;
     public Timer timerScript; 
-    public TextMeshProUGUI text; 
+    public TextMeshProUGUI text;
+    Animator anim; 
 
 
     [SerializeField] float speed = 5f;
@@ -21,6 +22,7 @@ public class Car : MonoBehaviour
 
     void Start()
     {
+        anim = GetComponent<Animator>(); 
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -42,12 +44,14 @@ public class Car : MonoBehaviour
             Debug.Log(rand); 
             if (rand == 1)
             {
-                Debug.Log("Impulse"); 
+                Debug.Log("Impulse");
+                anim.SetTrigger("Crash"); 
                 Vector2 impulse = new Vector2(Random.Range(-10f, 10f), 10f) * bumpForce;
                 rb.AddForce(impulse, ForceMode2D.Impulse);
             }
 
             timer = 0f;
+            anim.SetTrigger("Idle");
         }
 
         if(timerScript.time <= 50 && timerScript.time > 45)
@@ -85,6 +89,7 @@ public class Car : MonoBehaviour
 
     void Shoot()
     {
+        anim.SetTrigger("Shoot"); 
         if (bulletPrefab != null && gunTransform != null)
         {
             GameObject bullet = Instantiate(bulletPrefab, gunTransform.position, gunTransform.rotation);

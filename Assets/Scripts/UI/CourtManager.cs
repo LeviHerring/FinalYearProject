@@ -145,6 +145,6 @@ public class CourtManager : MonoBehaviour
 
     public void Commence()
     {
-        SceneManager.LoadScene("EmuBattlefieldScene"); // change to your next scene
+        SceneManager.LoadScene("9ArmyArrived"); // change to your next scene
     }
 }
