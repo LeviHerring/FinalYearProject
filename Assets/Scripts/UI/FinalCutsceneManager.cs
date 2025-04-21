@@ -28,7 +28,7 @@ public class FinalCutsceneManager : MonoBehaviour
 
         statsGroup.alpha = 1; // Make stats visible at start
         titleText.gameObject.SetActive(true);
-        titleText.text = "LAST STAND";
+        titleText.text = "December 10, 1932 - LAST STAND";
 
         fadeAnimator.SetTrigger("Idle");
 
@@ -123,7 +123,7 @@ public class FinalCutsceneManager : MonoBehaviour
 
         // Show stats panel
         statsGroup.alpha = 1;
-        titleText.text = "The Army Retreats";
+        titleText.text = "The Army Retreats - December 1932";
         subtitleText.text = "Emus killed: 986 / Estimated emus: 20,000+\nSoldiers injured: 0\nMorale: -1000";
         titleText.gameObject.SetActive(true);
         subtitleText.gameObject.SetActive(true);
@@ -132,9 +132,9 @@ public class FinalCutsceneManager : MonoBehaviour
 
         titleText.text = "";
         subtitleText.text = "With no choice, the government turns to... bounty hunters.";
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
 
-        SceneManager.LoadScene("BountyScene");
+        SceneManager.LoadScene(16);
     }
 
     IEnumerator FadeCanvasGroup(CanvasGroup cg, float duration)

@@ -34,7 +34,7 @@ public class FarmingOstrichDialogue : MonoBehaviour
     void Speaking()
     {
         // INTRO: 0–15 seconds
-        if (timer >= 0 && timer < 15 && !introStarted)
+        if (timer >= 0 && timer < 5 && !introStarted)
         {
             textManager.gameObject.SetActive(true);
             dialogue.lines = speechIntro;
@@ -43,7 +43,7 @@ public class FarmingOstrichDialogue : MonoBehaviour
         }
 
         // OSTRICH APPEARS: 15–30 seconds
-        if (timer >= 15 && timer < 30 && !ostrichDialogueStarted)
+        if (timer >= 6 && timer < 10 && !ostrichDialogueStarted)
         {
             if (ostrich != null)
             {
@@ -59,7 +59,7 @@ public class FarmingOstrichDialogue : MonoBehaviour
         }
 
         // Ostrich "moves" around — just simple left-right
-        if (timer >= 15 && timer < 30 && ostrich != null)
+        if (timer >= 6 && timer < 10 && ostrich != null)
         {
             float move = Mathf.Sin(Time.time * 2f) * 0.05f;
             ostrich.transform.position += new Vector3(move, 0, 0);
@@ -77,7 +77,7 @@ public class FarmingOstrichDialogue : MonoBehaviour
         // After the 'notLeaving' dialogue finishes, wait for 2 seconds and go to next scene
         if (notLeavingDialogueStarted && textManager.isFinished && !isSceneTransitioning)
         {
-            StartCoroutine(WaitAndGoToNextScene(2f));
+            StartCoroutine(WaitAndGoToNextScene(1f));
             isSceneTransitioning = true;  // Make sure this only happens once
         }
     }

@@ -34,7 +34,7 @@ public class FarmingSceneTwo : MonoBehaviour
 
     void Speech()
     {
-        if (timer >= 5 && !rabbitsStarted)
+        if (timer >= 2 && !rabbitsStarted)
         {
             textManager.gameObject.SetActive(true);
             dialogue.lines = speechIntro;

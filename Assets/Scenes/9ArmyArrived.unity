@@ -223,7 +223,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.48, y: 0.78}
   m_EdgeRadius: 0
 --- !u!212 &56145572
 SpriteRenderer:
@@ -286,7 +286,7 @@ Transform:
   m_GameObject: {fileID: 56145568}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.17, y: 2.33, z: -0.96}
+  m_LocalPosition: {x: -2.66, y: 0.85, z: -0.96}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -405,7 +405,7 @@ Transform:
   m_GameObject: {fileID: 85429096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.84, y: 1.97, z: -0.96}
+  m_LocalPosition: {x: 5.42, y: -0.16, z: -0.96}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -454,7 +454,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.31, y: 0.54}
   m_EdgeRadius: 0
 --- !u!114 &85429101
 MonoBehaviour:
@@ -552,7 +552,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79e170e60c76c3345941cf2cb7edfe28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -572,8 +572,8 @@ Transform:
   m_GameObject: {fileID: 134106755}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 19.48, y: 10.98, z: 1}
+  m_LocalPosition: {x: -0.0298, y: 0.0343, z: 0}
+  m_LocalScale: {x: 2.2226, y: 1.6619, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -690,7 +690,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.34, y: 0.56}
   m_EdgeRadius: 0
 --- !u!212 &435288158
 SpriteRenderer:
@@ -753,7 +753,7 @@ Transform:
   m_GameObject: {fileID: 435288154}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.65, y: 2.47, z: -0.96}
+  m_LocalPosition: {x: -7.24, y: -2.09, z: -0.96}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -973,7 +973,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.34, y: 0.56}
   m_EdgeRadius: 0
 --- !u!212 &547727765
 SpriteRenderer:
@@ -1036,7 +1036,7 @@ Transform:
   m_GameObject: {fileID: 547727761}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.59, y: 2.26, z: -0.96}
+  m_LocalPosition: {x: -4.32, y: -3.07, z: -0.96}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1175,7 +1175,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.34, y: 0.56}
   m_EdgeRadius: 0
 --- !u!212 &1307476075
 SpriteRenderer:
@@ -1238,7 +1238,7 @@ Transform:
   m_GameObject: {fileID: 1307476071}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.71, y: -2.41, z: -0.96}
+  m_LocalPosition: {x: -1.05, y: -3.15, z: -0.96}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1367,7 +1367,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.34, y: 0.56}
   m_EdgeRadius: 0
 --- !u!212 &1336225920
 SpriteRenderer:
@@ -1430,7 +1430,7 @@ Transform:
   m_GameObject: {fileID: 1336225916}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.56, y: -2.63, z: -0.96}
+  m_LocalPosition: {x: 2.95, y: -2.96, z: -0.96}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1639,7 +1639,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.77}
   m_EdgeRadius: 0
 --- !u!212 &1513622150
 SpriteRenderer:
@@ -1702,7 +1702,7 @@ Transform:
   m_GameObject: {fileID: 1513622146}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.82, y: 2.16, z: -0.96}
+  m_LocalPosition: {x: 1.5, y: 0.94, z: -0.96}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1939,7 +1939,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.34, y: 0.56}
   m_EdgeRadius: 0
 --- !u!212 &1657582674
 SpriteRenderer:
@@ -2002,7 +2002,7 @@ Transform:
   m_GameObject: {fileID: 1657582670}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.76, y: -2.65, z: -0.96}
+  m_LocalPosition: {x: 7.3, y: -2.83, z: -0.96}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2133,7 +2133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.48, y: 0.83}
   m_EdgeRadius: 0
 --- !u!212 &2133925324
 SpriteRenderer:
@@ -2196,7 +2196,7 @@ Transform:
   m_GameObject: {fileID: 2133925320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.46, y: 2.33, z: -0.96}
+  m_LocalPosition: {x: -7.23, y: 1.06, z: -0.96}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2237,11 +2237,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.76
+      value: 6.25
       objectReference: {fileID: 0}
     - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.99
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2249,7 +2249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9999601
       objectReference: {fileID: 0}
     - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2257,11 +2257,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.008930282
       objectReference: {fileID: 0}
     - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2273,7 +2273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -1.023
       objectReference: {fileID: 0}
     - target: {fileID: 2551840732120799605, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_Color.b
@@ -2532,6 +2532,10 @@ PrefabInstance:
     - target: {fileID: 3473807582160035425, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 358
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033097002241178185, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: correctAnswerFeedback
+      value: It's time for shooting! Click on the emus to kill them!
       objectReference: {fileID: 0}
     - target: {fileID: 5082577950128990797, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_text

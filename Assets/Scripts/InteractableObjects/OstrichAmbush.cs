@@ -10,7 +10,7 @@ public class OstrichAmbush : MonoBehaviour
     public float slowSpeed = 1f;
     public float mediumSpeed = 2.5f;
     public float fastSpeed = 4f;
-    public float panicSpeed = 7f;
+    public float panicSpeed = 30f;
 
     public float escapeX = -12f;  // Position too far left
 
@@ -50,8 +50,13 @@ public class OstrichAmbush : MonoBehaviour
 
         if (transform.position.x <= escapeX)
         {
-            AmbushGun.Instance?.EmuEscaped();  // Tell gun that one escaped
-            Destroy(gameObject);               // Remove the emu
+            if (AmbushGun.Instance != null)
+            {
+                AmbushGun.Instance.EmuEscaped(); // Notify the gun an emu got away
+                AmbushGun.Instance.EmuDespawned(); // Also tell it an emu is gone
+            }
+
+            Destroy(gameObject);
         }
     }
 
@@ -62,6 +67,7 @@ public class OstrichAmbush : MonoBehaviour
 
     public void Panic()
     {
+        Debug.Log("Panicking"); 
         isPanicking = true;
     }
 }

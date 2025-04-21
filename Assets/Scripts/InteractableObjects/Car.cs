@@ -54,12 +54,12 @@ public class Car : MonoBehaviour
             anim.SetTrigger("Idle");
         }
 
-        if(timerScript.time <= 50 && timerScript.time > 45)
+        if(timerScript.time <= 10 && timerScript.time > 5)
         {
             text.gameObject.SetActive(true);
             text.text = "This emu is too fast, it's getting away. The ground is making it impossible to aim!";
 
-            if(timerScript.time <= 46 && timerScript.time > 44)
+            if(timerScript.time <= 6 && timerScript.time > 4)
             {
                 text.gameObject.SetActive(false);
             }    
@@ -89,9 +89,10 @@ public class Car : MonoBehaviour
 
     void Shoot()
     {
-        anim.SetTrigger("Shoot"); 
+        
         if (bulletPrefab != null && gunTransform != null)
         {
+            anim.SetTrigger("Shoot");
             GameObject bullet = Instantiate(bulletPrefab, gunTransform.position, gunTransform.rotation);
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
 

@@ -214,7 +214,7 @@ Transform:
   m_GameObject: {fileID: 85429096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.84, y: 1.97, z: -0.96}
+  m_LocalPosition: {x: 5.35, y: 0.02, z: -0.96}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -361,7 +361,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79e170e60c76c3345941cf2cb7edfe28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -381,8 +381,8 @@ Transform:
   m_GameObject: {fileID: 134106755}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 19.48, y: 10.98, z: 1}
+  m_LocalPosition: {x: -0.1012, y: -0.1012, z: 0}
+  m_LocalScale: {x: 2.296303, y: 1.7007768, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -563,7 +563,7 @@ Transform:
   m_GameObject: {fileID: 435288154}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.58, y: 2.23, z: -0.96}
+  m_LocalPosition: {x: -2.92, y: 1.01, z: -0.96}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -847,7 +847,7 @@ Transform:
   m_GameObject: {fileID: 547727761}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.02, y: 2.19, z: -0.96}
+  m_LocalPosition: {x: 1.58, y: 0.37, z: -0.96}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -907,11 +907,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.01
+      value: 6.42
       objectReference: {fileID: 0}
     - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.56
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 2023819680740330397, guid: 025e12c631cfdb24b9f75ade6a398e42, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1114,7 +1114,7 @@ Transform:
   m_GameObject: {fileID: 1307476071}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4, y: -2.65, z: -0.96}
+  m_LocalPosition: {x: -7.74, y: -3.4, z: -0.96}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1306,7 +1306,7 @@ Transform:
   m_GameObject: {fileID: 1336225916}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.56, y: -2.63, z: -0.96}
+  m_LocalPosition: {x: -2.77, y: -3.24, z: -0.96}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1686,7 +1686,7 @@ Transform:
   m_GameObject: {fileID: 1657582670}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.76, y: -2.65, z: -0.96}
+  m_LocalPosition: {x: 7.48, y: -2.94, z: -0.96}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1878,7 +1878,7 @@ Transform:
   m_GameObject: {fileID: 2133925320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.27, y: 1.928, z: -0.96}
+  m_LocalPosition: {x: -7.61, y: 0.95, z: -0.96}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1974,6 +1974,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 388618626041568759, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 280.249
+      objectReference: {fileID: 0}
+    - target: {fileID: 388618626041568759, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 53.7335
+      objectReference: {fileID: 0}
+    - target: {fileID: 388618626041568759, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -460
+      objectReference: {fileID: 0}
+    - target: {fileID: 388618626041568759, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 323
+      objectReference: {fileID: 0}
+    - target: {fileID: 926446276479313514, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1220075403726893406, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_text
       value: "They\u2019re attacking the people"
@@ -2070,24 +2090,111 @@ PrefabInstance:
       propertyPath: m_text
       value: They scared the cows into not producing milk.
       objectReference: {fileID: 0}
+    - target: {fileID: 2547464852770668852, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706293729629467562, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 280.249
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706293729629467562, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 53.7335
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706293729629467562, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 504
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706293729629467562, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 578.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473807582160035425, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 280.249
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473807582160035425, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 53.7335
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473807582160035425, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 504
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473807582160035425, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 323
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033097002241178185, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: correctAnswerFeedback
+      value: Let's go back to the farm to see if it's gotten any better....
+      objectReference: {fileID: 0}
     - target: {fileID: 5082577950128990797, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_text
       value: 'Laying eggs
 
-
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082577950128990797, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082577950128990797, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082577950128990797, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269927077739559670, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730141215084155035, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6361910145776098208, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6835599369553897516, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 280.249
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835599369553897516, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 53.7335
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835599369553897516, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -460
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835599369553897516, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 578.13
+      objectReference: {fileID: 0}
     - target: {fileID: 8023495102580397871, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_text
       value: They were stealing farming tools.
       objectReference: {fileID: 0}
+    - target: {fileID: 8023495102580397871, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8048033690325322225, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
       propertyPath: m_text
       value: 'Destroying the crops '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048033690325322225, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322071196559923271, guid: 1d9a3a7d8f5a9a04580e366e77b2cd87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

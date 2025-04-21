@@ -33,14 +33,14 @@ EditorBuildSettings:
     path: Assets/Scenes/9ArmyArrived.unity
     guid: f329a6a7e6523c84db01e83e72bf9a03
   - enabled: 1
-    path: Assets/Scenes/10AmbushScene.unity
-    guid: 99c30043f13df054f8dd0cbaedaeb404
+    path: Assets/Scenes/10ShootingGame1.unity
+    guid: 51a217acea4dfcc448db777815465d7a
   - enabled: 1
     path: Assets/Scenes/11AngryAmbushArmy.unity
     guid: e652a6b9c9b6a554b8df6069d7c164ce
   - enabled: 1
-    path: Assets/Scenes/12ShootingGame1.unity
-    guid: 51a217acea4dfcc448db777815465d7a
+    path: Assets/Scenes/12AmbushScene.unity
+    guid: 99c30043f13df054f8dd0cbaedaeb404
   - enabled: 1
     path: Assets/Scenes/13ConfusedArmy.unity
     guid: 6919bd54a552a3348abbe61015ad7fde

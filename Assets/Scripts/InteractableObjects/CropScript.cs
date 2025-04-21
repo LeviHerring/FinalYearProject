@@ -9,9 +9,13 @@ public class CropScript : InteractableObject
     private Color startColor;
     public Color targetGreenColor = Color.green;
     private bool hasStarted = false;
+    private bool isAnimating = false;
+
+    Animator anim;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         if (sprite != null)
         {
@@ -21,26 +25,24 @@ public class CropScript : InteractableObject
 
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (activated)
+        if (activated && !hasStarted)
         {
-            if (!hasStarted)
-            {
-                startColor = sprite.color; // Get starting color on first activation
-                hasStarted = true;
-            }
+            hasStarted = true;
+            StartCoroutine(Activated());
+        }
 
-            Activated();
+        if (hasStarted)
+        {
+            timer += Time.deltaTime;
         }
     }
 
-    void Activated()
+    IEnumerator Activated()
     {
-        if (timer <= 15f)
-        {
-            float t = Mathf.InverseLerp(0f, 15f, timer); // 0 to 1 over 15 seconds
-            sprite.color = Color.Lerp(startColor, targetGreenColor, t);
-        }
+        isAnimating = true;
+        anim.SetTrigger("Water");
+        yield return new WaitForSeconds(1f);
+        anim.SetTrigger("Crop");
+        isAnimating = false;
     }
 }

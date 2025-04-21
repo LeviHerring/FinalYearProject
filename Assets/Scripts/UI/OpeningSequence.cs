@@ -36,6 +36,6 @@ public class OpeningSequence : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // Load next scene (adjust index or name as needed)
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(2);
     }
 }

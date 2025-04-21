@@ -70,8 +70,8 @@ public class CourtManager : MonoBehaviour
         // Show transition text (e.g. “that’s very concerning…”)
         textManager.dialogueEntry.lines = new string[]
         {
-            "George Pearce: 'Hmm… that’s... very concerning indeed.'",
-            "George Pearce: 'But before I send troops… I have conditions.'"
+            "George Pearce: Hmm… that’s... very concerning indeed.",
+            "George Pearce: All right, listen up. I understand your frustrations, but this won’t be simple. If we're to send military support, there are conditions"
         };
 
         textManager.StartDialogue(textManager.dialogueEntry);
@@ -83,6 +83,9 @@ public class CourtManager : MonoBehaviour
         panels[phase].SetActive(true);
         textManager.dialogueEntry.lines = objectionString;
         textManager.StartDialogue(textManager.dialogueEntry);
+
+        hasTriggeredObjection = true;
+        StartCoroutine(ResetObjectionAfterDialogue());
     }
 
     public void Truth()
@@ -94,8 +97,8 @@ public class CourtManager : MonoBehaviour
 
         textManager.dialogueEntry.lines = new string[]
         {
-            "Farmer: 'That’s a LIE! The government didn’t pay for ammo — WE DID!'",
-            "George Pearce: 'Hmph. You’ve been doing your homework, I see…'"
+            "Farmer: That’s a LIE! The government didn’t pay for ammo — WE DID!",
+            "George Pearce: Hmph. You’ve been doing your homework, I see…"
         };
 
         textManager.StartDialogue(textManager.dialogueEntry);
@@ -111,12 +114,13 @@ public class CourtManager : MonoBehaviour
 
         textManager.dialogueEntry.lines = new string[]
         {
-            "George Pearce: 'Nonsense. I absolutely said that.'",
-            "*The cow moos judgmentally*"
+        "George Pearce: Nonsense. I absolutely said that.",
+        "*The cow moos judgmentally*"
         };
 
         textManager.StartDialogue(textManager.dialogueEntry);
-        StartCoroutine(WaitForDialogueThenShowVerdict());
+
+        StartCoroutine(ResetObjectionAfterDialogue());
     }
 
     IEnumerator WaitForDialogueThenShowVerdict()
@@ -145,6 +149,22 @@ public class CourtManager : MonoBehaviour
 
     public void Commence()
     {
-        SceneManager.LoadScene("9ArmyArrived"); // change to your next scene
+        SceneManager.LoadScene(8); // change to your next scene
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1f); 
+
+    }
+
+    IEnumerator ResetObjectionAfterDialogue()
+    {
+        // Wait until the dialogue finishes typing
+        yield return new WaitUntil(() => textManager.isFinished);
+
+        yield return new WaitForSeconds(0.2f); // Small pause to make it feel natural
+
+        hasTriggeredObjection = false;
     }
 }

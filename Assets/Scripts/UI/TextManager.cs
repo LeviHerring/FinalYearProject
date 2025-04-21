@@ -33,6 +33,13 @@ public class TextManager : MonoBehaviour
                 StopAllCoroutines();
                 speechText.text = dialogueEntry.lines[index];
                 typing = false;
+
+                //  Check if it's the last line AND a question
+                if (dialogueEntry.isQuestion && index == dialogueEntry.lines.Length - 1)
+                {
+                    waitingForAnswer = true;
+                    EnableAnswerButtons(true);
+                }
             }
             else if (!waitingForAnswer)
             {
